@@ -1,0 +1,159 @@
+
+.logo{
+    /*background-image:url(src/dota_84.png);
+    background-repeat:no-repeat;写了无效*/
+    width:300px; height:130px;
+}
+
+
+
+.holyg{
+    display: flex;
+    flex-direction:row;
+    height: 1000px;
+}
+
+.lefterwhite{
+
+    display: flex;
+
+    flex:460;
+
+}
+
+.middle{
+
+
+    display: flex;
+
+
+
+    height: 1000;
+
+    flex-direction:column;
+ 
+}
+
+
+.rightwhite{
+
+    display: flex;
+ 
+    flex:460;
+
+
+
+}
+
+.loginbody{
+    display: flex;
+
+    flex-direction:row;
+    margin-top: 15px;
+}
+
+.login{
+
+    border: solid ;
+    border-color: white;
+    border-width: thin;
+    width: 136px;
+    height: 28px;
+    display: flex; 
+
+    flex:145;
+
+}
+
+.loginwhite{
+
+    display: flex; 
+    flex:830;
+
+
+}
+
+.header{
+    display: flex;
+
+}
+
+.header_logo{
+
+    width: 190px;
+    height: 145px;
+
+}
+
+
+.header_kefuimg{
+
+}
+
+.header_ul{
+
+}
+
+.header_search{
+
+
+}
+
+.main{
+        display: flex;
+
+    flex-direction:row;
+
+    height: 650px;
+
+
+}
+
+.mainul{
+    flex:195;
+    background-color: #293034;  
+
+    display: flex;
+
+    flex-direction:column;
+
+
+}
+
+.mainright{
+    flex:791;
+    background-color: white;  
+
+
+}
+
+.MRtitle{
+    color: red;
+
+}
+
+.MRcontext{
+    border: solid thin;
+
+    border-color: #999;
+
+}
+
+.libg{
+
+    list-style-image : url(../src/arrow_85.jpg);
+    color: #999;
+}
+
+.borderonly{
+    display: flex;
+    border-bottom: solid #999 0.001px;
+    align-items: center;
+    justify-content: left;
+    height:50px
+
+}
+
+body{
+    margin: 0px;
+}
