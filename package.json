@@ -6,6 +6,7 @@
   "author": "hechao",
   "license": "MIT",
   "dependencies": {
+    "browser": "^0.2.6",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   }
