@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>模拟DOTA2客服</title>
   <link rel="stylesheet" href="css/style.css">
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
 </head>
 
 <body>
@@ -34,7 +37,7 @@
 
             <div class="header_search">
                 <input  type="text" placeholder="请输入您要搜索的问题"style="width:565px;height:30px;float:left;" id="todo"/>
-                <input  type="button" style="width:100px;height: 36px;border:none;color:white;background-color:orange;margin-top: 0px;" value="搜索答案" onclick="sth()" />
+                <!-- <input  type="button" style="width:100px;height: 36px;border:none;color:white;background-color:orange;margin-top: 0px;" value="搜索答案" onclick="sth()" /> -->
                 <input  type="button" style="width:100px;height: 36px;border:none;color:white;background-color:#13a7a9;" value="我要提问?" />
             </div>
             </aside>
@@ -74,7 +77,15 @@
 
                      <img src="src/people_84.png" style="float:right">
                 <ul>
-                    <li class="libg" id="point">记录表</li>
+                    <li class="libg" id="point">请输入待办事项</li>
+
+
+                    <li class="libg" id="pointb">记录表</li>
+
+
+                    <li class="libg" id="pointc">记录表</li>
+
+                    <li class="libg" id="pointd">记录表</li>
 
                 </ul></div>
 
@@ -100,9 +111,153 @@
 
 <script src="js/index.js"></script>
 
+
 </div>
 
-<footer style="height:162px;background-color: black;"></footer>
+<footer style="height:162px;background-color: black;">
+    
+    <script type="text/babel">
+
+ var Mystorage = React.createClass({
+  handleClick: function() {
+     // this.refs.myTextInput.focus();
+     // 
+     // 
+     // 
+     // 
+    var y = document.getElementById("there").checked?"完成":"未完成";
+    var x = document.getElementById("here");
+    var p= document.createElement('li');
+
+                    p.innerText=x.value+y;
+
+                    document.getElementById("point").appendChild(p);
+
+                    
+
+
+     // alert(document.getElementById("there").checked?"完成":"未完成")
+     // 
+     
+     
+
+
+     // var todos =  [{"title":x.value,"finished":document.getElementById("there").checked?"完成":"未完成"}]
+
+     // localStorage.setItem('todos',JSON.stringify(todos));
+
+
+
+    // alert(x.value);
+    // 
+    
+
+    
+
+
+    
+
+// document.getElementById("demo").innerHTML = x.value;
+
+
+
+  },
+  render: function() {
+    return (
+      <div>
+        
+        <input type="button" value="储存" onClick={this.handleClick} />
+      </div>
+    );
+  }
+});
+
+
+
+
+ReactDOM.render(
+  <Mystorage />,
+
+  document.getElementById('pointd')
+);
+
+    </script>
+
+    <script type="text/babel">
+
+
+
+
+ var Content= React.createClass({
+
+    handleChange: function (event) {             this.setState({name: event.target.value});         },
+ 
+  render: function() {
+    return (
+      <div>
+        
+        <input type="text" id = "here" onChange = {this.handleChange}/>
+      </div>
+    );
+  }
+});
+
+ReactDOM.render(
+  <Content />,
+  document.getElementById('pointb')
+);
+
+    </script>
+
+
+    <script type="text/babel">
+
+
+
+
+             var ContentFT= React.createClass({
+
+
+              handleClick:function(){
+
+
+
+                
+
+
+
+              },
+             
+              render: function() {
+                return (
+                  <div>
+                    
+                    <input type="checkbox" id = "there" ref="abox" onclick ={this.handleClick}  />Did you finish this work?
+                  </div>
+                );
+              }
+            });
+
+            ReactDOM.render(
+
+
+              <ContentFT />,
+
+              
+              document.getElementById('pointc')
+              
+            );
+
+            
+
+    </script>
+
+
+    
+</footer>
+
+
+
 </body>
 
 
