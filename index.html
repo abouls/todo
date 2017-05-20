@@ -5,7 +5,7 @@
   <title>模拟DOTA2客服</title>
   <link rel="stylesheet" href="css/style.css">
     <script src="node_modules/react/dist/react.min.js"></script>
-    <script src="node_modules/react-dom/dist/react.min.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.min.js"></script>
     <script src="node_modules/browser/browser.js"></script>
 </head>
 
@@ -22,7 +22,7 @@
 
         <div class="loginbody">
         <div class="loginwhite" ></div>
-        
+
         <div class="login" style="color:#ccc;line-height: 26px;font-size: 14px;">&nbsp&nbsp&nbsp您好：请<span style="color:#999">[登录]</span></div>
 
         </div>
@@ -32,7 +32,7 @@
             <aside>
             <div class="header_kefuimg" ><img src="src/service_84.png" align="middle" style="margin-bottom:20px">
 
-            <span style="color:orange" >&nbsp&nbsp&nbsp首页&nbsp&nbsp&nbsp&nbsp</span><span style="color:#999">我的提问&nbsp&nbsp&nbsp</span> <span style="color:#999"> 自助服务 &nbsp&nbsp&nbsp </span>     <span style="color:#999"> 联系客服 &nbsp&nbsp&nbsp </span> <span style="color:#999">     新手指南</span> 
+            <span style="color:orange" >&nbsp&nbsp&nbsp首页&nbsp&nbsp&nbsp&nbsp</span><span style="color:#999">我的提问&nbsp&nbsp&nbsp</span> <span style="color:#999"> 自助服务 &nbsp&nbsp&nbsp </span>     <span style="color:#999"> 联系客服 &nbsp&nbsp&nbsp </span> <span style="color:#999">     新手指南</span>
             </div>
 
             <div class="header_search">
@@ -47,10 +47,10 @@
 
         <div class="main" style="color:#999">
             <div class="mainul">
-                
+
                     <li  style="background-color:#13a7a9;color:white;list-style-type:none;text-align:left;height:50px;align-items: center;"><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp常见问题和分类</p></li>
 
-                <ul style="list-style-type:none;padding-left: 0px;text-align:center;margin-top: 0px;">    
+                <ul style="list-style-type:none;padding-left: 0px;text-align:center;margin-top: 0px;">
                     <li class="borderonly">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp账号问题</li>
                     <li class="borderonly">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp交易问题</li>
                     <li class="borderonly">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp技术问题</li>
@@ -97,16 +97,13 @@
 
 
 
-    </div> 
+    </div>
 
 
 
-    <div class="rightwhite" ></div> 
+    <div class="rightwhite" ></div>
 
 
-<script>
-
-</script>
 
 
 <script src="js/index.js"></script>
@@ -115,145 +112,13 @@
 </div>
 
 <footer style="height:162px;background-color: black;">
-    
-    <script type="text/babel">
-
- var Mystorage = React.createClass({
-  handleClick: function() {
-     // this.refs.myTextInput.focus();
-     // 
-     // 
-     // 
-     // 
-    var y = document.getElementById("there").checked?"完成":"未完成";
-    var x = document.getElementById("here");
-    var p= document.createElement('li');
-
-                    p.innerText=x.value+y;
-
-                    document.getElementById("point").appendChild(p);
-
-                    
-
-
-     // alert(document.getElementById("there").checked?"完成":"未完成")
-     // 
-     
-     
-
-
-     // var todos =  [{"title":x.value,"finished":document.getElementById("there").checked?"完成":"未完成"}]
-
-     // localStorage.setItem('todos',JSON.stringify(todos));
-
-
-
-    // alert(x.value);
-    // 
-    
-
-    
-
-
-    
-
-// document.getElementById("demo").innerHTML = x.value;
-
-
-
-  },
-  render: function() {
-    return (
-      <div>
-        
-        <input type="button" value="储存" onClick={this.handleClick} />
-      </div>
-    );
-  }
-});
 
 
 
 
-ReactDOM.render(
-  <Mystorage />,
-
-  document.getElementById('pointd')
-);
-
-    </script>
-
-    <script type="text/babel">
 
 
 
-
- var Content= React.createClass({
-
-    handleChange: function (event) {             this.setState({name: event.target.value});         },
- 
-  render: function() {
-    return (
-      <div>
-        
-        <input type="text" id = "here" onChange = {this.handleChange}/>
-      </div>
-    );
-  }
-});
-
-ReactDOM.render(
-  <Content />,
-  document.getElementById('pointb')
-);
-
-    </script>
-
-
-    <script type="text/babel">
-
-
-
-
-             var ContentFT= React.createClass({
-
-
-              handleClick:function(){
-
-
-
-                
-
-
-
-              },
-             
-              render: function() {
-                return (
-                  <div>
-                    
-                    <input type="checkbox" id = "there" ref="abox" onclick ={this.handleClick}  />Did you finish this work?
-                  </div>
-                );
-              }
-            });
-
-            ReactDOM.render(
-
-
-              <ContentFT />,
-
-              
-              document.getElementById('pointc')
-              
-            );
-
-            
-
-    </script>
-
-
-    
 </footer>
 
 
