@@ -1,6 +1,5 @@
 class TodoInput extends React.Component {
     onChange(event) {
-        console.log(event.target.value)
         this.props.onChange(event.target.value)
     }
 
@@ -12,32 +11,34 @@ class TodoInput extends React.Component {
 }
 class TodoList extends React.Component {
 
-
     constructor() {
         super();
         this.state = {todos: [], input: ""};
     }
 
     componentWillMount() {
+        var rows = localStorage.getItem("listtodo")
         this.setState({
-            todos: [
-                "react study", "dota2 ", "sleep", "sleep"
-            ]
+            todos: rows
         })
+
+
     }
 
     changeText(text) {
         this.setState({input: text})
     }
 
-    save(){
+    save() {
         var todo = this.state.input
         const newTodos = this.state.todos
         newTodos.push(todo)
         this.setState({
-            todos :newTodos
+            todos: newTodos
 
         })
+        localStorage.setItem("listtodo", JSON.stringify(this.state.todos))
+
     }
 
 
