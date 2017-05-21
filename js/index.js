@@ -9,6 +9,19 @@ class TodoInput extends React.Component {
         )
     }
 }
+
+
+class TodoItem extends React.Component {
+
+
+    render() {
+        console.log(this.props)
+        const todo = this.props.children
+        return ( <li className="libg" >{todo}</li>)
+
+    }
+}
+
 class TodoList extends React.Component {
 
     constructor() {
@@ -17,9 +30,10 @@ class TodoList extends React.Component {
     }
 
     componentWillMount() {
-        var rows = localStorage.getItem("listtodo")
+        const rows = localStorage.getItem("listtodo")
+        const row = JSON.parse(rows)
         this.setState({
-            todos: rows
+            todos: row
         })
 
 
@@ -41,17 +55,23 @@ class TodoList extends React.Component {
 
     }
 
+    deleTodo() {
+
+
+    }
+
 
     render() {
+        console.log(this.state.todos)
         return (
             <div>
                 <TodoInput onChange={this.changeText.bind(this)}/>
                 <button onClick={this.save.bind(this)}>储存</button>
                 <ul>
                     {this.state.todos.map(function (todo, index) {
-                        return <li className="libg" key={index}>{todo}</li>
+                        return <TodoItem key={index}>{todo}</TodoItem>
                     })}
-
+                    <button onClick={this.deleTodo.bind(this)}>删除</button>
                 </ul>
             </div>
         );
