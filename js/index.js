@@ -13,11 +13,26 @@ class TodoInput extends React.Component {
 
 class TodoItem extends React.Component {
 
+    deleteTodo() {
+
+        const welist = this.props.dele
+
+
+        console.log(welist)
+
+        // localStorage.clear()
+
+    }
+
 
     render() {
-        console.log(this.props)
-        const todo = this.props.children
-        return ( <li className="libg" >{todo}</li>)
+        return (
+            <div>
+                <button onClick={this.deleteTodo.bind(this)}>delete</button>
+
+                <li>{this.props.abc}</li>
+            </div>
+        )
 
     }
 }
@@ -26,14 +41,14 @@ class TodoList extends React.Component {
 
     constructor() {
         super();
-        this.state = {todos: [], input: ""};
+        this.state = {todos: ["this is 1st", "休息","whereismy"], input: ""};
     }
 
     componentWillMount() {
         const rows = localStorage.getItem("listtodo")
         const row = JSON.parse(rows)
-        this.setState({
-            todos: row
+         this.setState({
+             todos:row
         })
 
 
@@ -69,9 +84,9 @@ class TodoList extends React.Component {
                 <button onClick={this.save.bind(this)}>储存</button>
                 <ul>
                     {this.state.todos.map(function (todo, index) {
-                        return <TodoItem key={index}>{todo}</TodoItem>
+                    return <TodoItem dele={todo} abc={todo} key={index}></TodoItem>
                     })}
-                    <button onClick={this.deleTodo.bind(this)}>删除</button>
+
                 </ul>
             </div>
         );
