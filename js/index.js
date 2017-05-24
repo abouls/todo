@@ -1,6 +1,6 @@
 class TodoInput extends React.Component {
     onChange(event) {
-        this.props.onChange(event.target.value)
+       return this.props.onChange(event.target.value)
     }
 
     render() {
@@ -12,23 +12,15 @@ class TodoInput extends React.Component {
 
 
 class TodoItem extends React.Component {
-
     deleteTodo() {
-
-        const welist = this.props.dele
-
-
-        console.log(welist)
-
-        // localStorage.clear()
-
+        return (this.props.abc)
     }
 
 
     render() {
         return (
             <div>
-                <button onClick={this.deleteTodo.bind(this)}>delete</button>
+                <input type="checkbox" onClick={this.deleteTodo.bind(this)} ></input>
 
                 <li>{this.props.abc}</li>
             </div>
@@ -41,7 +33,7 @@ class TodoList extends React.Component {
 
     constructor() {
         super();
-        this.state = {todos: ["this is 1st", "休息","whereismy"], input: ""};
+        this.state = {todos: ["this is 1st", "休息","whereismy"], input: "",};
     }
 
     componentWillMount() {
@@ -55,6 +47,7 @@ class TodoList extends React.Component {
     }
 
     changeText(text) {
+
         this.setState({input: text})
     }
 
@@ -70,21 +63,21 @@ class TodoList extends React.Component {
 
     }
 
-    deleTodo() {
-
+    dele(){
+        const i =this.refs.meansmark.deleteTodo()
 
     }
 
 
     render() {
-        console.log(this.state.todos)
         return (
             <div>
                 <TodoInput onChange={this.changeText.bind(this)}/>
                 <button onClick={this.save.bind(this)}>储存</button>
+                <button onClick={this.dele.bind(this)}>删除所选</button>
                 <ul>
                     {this.state.todos.map(function (todo, index) {
-                    return <TodoItem dele={todo} abc={todo} key={index}></TodoItem>
+                    return <TodoItem ref="meansmark" dele={todo} abc={todo}  key={index}></TodoItem>
                     })}
 
                 </ul>
