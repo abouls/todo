@@ -13,7 +13,9 @@ class TodoInput extends React.Component {
 
 class TodoItem extends React.Component {
     deleteTodo() {
-        return (this.props.abc)
+        console.log(this.props.abc)
+        console.log(this.props.dele)
+        this.props.dele
     }
 
 
@@ -65,6 +67,14 @@ class TodoList extends React.Component {
 
     dele(){
         const i =this.refs.meansmark.deleteTodo()
+        const newTodos =this.state.todos
+        newTodos.splice(i,1)
+        this.setState({
+            todos: newTodos
+
+        })
+        localStorage.setItem("listtodo", JSON.stringify(this.state.todos))
+
 
     }
 
@@ -77,7 +87,7 @@ class TodoList extends React.Component {
                 <button onClick={this.dele.bind(this)}>删除所选</button>
                 <ul>
                     {this.state.todos.map(function (todo, index) {
-                    return <TodoItem ref="meansmark" dele={todo} abc={todo}  key={index}></TodoItem>
+                    return <TodoItem ref="meansmark" dele={index} abc={todo}  key={index}></TodoItem>
                     })}
 
                 </ul>
