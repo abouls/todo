@@ -1,6 +1,6 @@
 class TodoInput extends React.Component {
     onChange(event) {
-       return this.props.onChange(event.target.value)
+        return this.props.onChange(event.target.value)
     }
 
     render() {
@@ -12,18 +12,17 @@ class TodoInput extends React.Component {
 
 
 class TodoItem extends React.Component {
-    deleteTodo() {
-        console.log(this.props.abc)
-        console.log(this.props.dele)
-        this.props.dele
+
+    onClick() {
+        const e = this.props.dele
+        return this.props.sth(e)
     }
 
 
     render() {
         return (
             <div>
-                <input type="checkbox" onClick={this.deleteTodo.bind(this)} ></input>
-
+                <button onClick={this.onClick.bind(this)}>删除</button>
                 <li>{this.props.abc}</li>
             </div>
         )
@@ -35,23 +34,22 @@ class TodoList extends React.Component {
 
     constructor() {
         super();
-        this.state = {todos: ["this is 1st", "休息","whereismy"], input: "",};
+        this.state = {todos: ["this is 1st", "休息", "whereismy"], input: "",};
+
     }
 
     componentWillMount() {
         const rows = localStorage.getItem("listtodo")
         const row = JSON.parse(rows)
-         this.setState({
-             todos:row
+        this.setState({
+            todos: row
         })
-
-
     }
 
     changeText(text) {
-
         this.setState({input: text})
     }
+
 
     save() {
         var todo = this.state.input
@@ -62,16 +60,13 @@ class TodoList extends React.Component {
 
         })
         localStorage.setItem("listtodo", JSON.stringify(this.state.todos))
-
     }
 
-    dele(){
-        const i =this.refs.meansmark.deleteTodo()
-        const newTodos =this.state.todos
-        newTodos.splice(i,1)
+    dele(e) {
+        const newTodos = this.state.todos
+        newTodos.splice(e, 1)
         this.setState({
             todos: newTodos
-
         })
         localStorage.setItem("listtodo", JSON.stringify(this.state.todos))
 
@@ -84,11 +79,14 @@ class TodoList extends React.Component {
             <div>
                 <TodoInput onChange={this.changeText.bind(this)}/>
                 <button onClick={this.save.bind(this)}>储存</button>
-                <button onClick={this.dele.bind(this)}>删除所选</button>
                 <ul>
-                    {this.state.todos.map(function (todo, index) {
-                    return <TodoItem ref="meansmark" dele={index} abc={todo}  key={index}></TodoItem>
-                    })}
+                    {
+                        this.state.todos.map((todo, index) => {
+                            return (
+                                <div>
+                                    <TodoItem dele={index} abc={todo} key={index} sth={this.dele.bind(this)}></TodoItem>
+                                </div>)
+                        })}
 
                 </ul>
             </div>
